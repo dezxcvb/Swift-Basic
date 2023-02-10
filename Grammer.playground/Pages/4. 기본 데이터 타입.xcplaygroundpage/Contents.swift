@@ -1,4 +1,5 @@
 /// 기본 데이터 타입
+/// Bool, Int, UInt, Float, Double, Character, String
 
 import UIKit
 

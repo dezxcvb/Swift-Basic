@@ -1,4 +1,5 @@
 /// 변수와 상수
+/// var, let
 
 import Swift
 
