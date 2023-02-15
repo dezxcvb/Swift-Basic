@@ -1,5 +1,5 @@
 /// assert와 guard
-/// assertion and guard
+/// Assertion & Guard
 
 // 애플리케이션이 동작 도중에 생성하는 다양한 연산 결괏값을 동적으로 확인하고 안전하게 처리할 수 있도록 확인하고 빠르게 처리할 수 있습니다.
 

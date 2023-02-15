@@ -1,4 +1,5 @@
 /// 클로저 기본
+/// Closure 기본
 
 import Swift
 

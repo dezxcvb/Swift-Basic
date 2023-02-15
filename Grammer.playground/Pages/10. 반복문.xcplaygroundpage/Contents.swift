@@ -1,5 +1,5 @@
 /// 반복문
-/// 루프
+/// Loop
 
 import Swift
 

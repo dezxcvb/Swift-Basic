@@ -1,5 +1,5 @@
 /// 조건문
-/// 조건 구문
+/// Conditional Statement
 
 import Swift
 

@@ -1,5 +1,5 @@
 /// 클래스
-/// Class(es)
+/// Class
 
 import Swift
 

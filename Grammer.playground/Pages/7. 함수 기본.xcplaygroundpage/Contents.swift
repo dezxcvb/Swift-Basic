@@ -1,5 +1,5 @@
 /// 함수
-/// 함수 기본
+/// Fuction 기본
 
 import Swift
 

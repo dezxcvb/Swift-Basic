@@ -1,5 +1,5 @@
 /// 구조체
-/// Structure(s)
+/// Structure
 
 import Swift
 

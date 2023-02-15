@@ -1,5 +1,5 @@
 /// 값 타입과 참조 타입
-/// Class Vs Struct / Enum
+/// Value Type & Reference Type
 
 import Swift
 

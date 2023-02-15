@@ -1,4 +1,4 @@
-/// 특수 데이터 타입
+/// 고급 데이터 타입
 /// Any, AnyObject, nil
 
 import Swift

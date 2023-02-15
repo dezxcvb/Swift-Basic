@@ -1,5 +1,5 @@
 /// 인스턴스의 생성과 소멸
-/// 이니셜라이저와 디이니셜라이저
+/// Initializer & Deinitializer
 ///  init, deinit
 
 import Swift

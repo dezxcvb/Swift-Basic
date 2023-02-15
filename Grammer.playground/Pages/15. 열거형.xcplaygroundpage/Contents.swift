@@ -1,5 +1,5 @@
 /// 열거형
-/// Enumerations
+/// Enumeration
 
 import Swift
 

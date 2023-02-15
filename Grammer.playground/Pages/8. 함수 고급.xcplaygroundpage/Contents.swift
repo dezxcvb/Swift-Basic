@@ -1,5 +1,5 @@
 /// 함수
-/// 함수 고급
+/// Function 고급
 
 import Swift
 
