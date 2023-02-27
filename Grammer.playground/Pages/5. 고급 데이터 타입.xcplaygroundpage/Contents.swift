@@ -28,6 +28,8 @@ var someAnyObject: AnyObject = SomeClass()
 
 // someAnyObject = 123.12
 
+
+
 // MARK: - nil (NULL, Null, null)
 
 // someAny = nil

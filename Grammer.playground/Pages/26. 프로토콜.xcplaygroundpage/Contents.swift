@@ -36,11 +36,29 @@ protocol Talkable {
 
 /// 프로토콜 채택 및 준수
 
-struct Person: Talkable { // Person 구조체는 Talkable 프로토콜을 채택했습니다.
+// Person 구조체는 Talkable 프로토콜을 채택했습니다.
+
+struct Person: Talkable {
     
     // 프로퍼티 요구 준수
     var topic: String
     let language: String
+    
+    // 읽기 전용 프로퍼티 요구는 연산 프로퍼티로 대체가 가능합니다.
+    // var language: String { return "한국어" }
+    
+    // 물론 읽기, 쓰기 프로퍼티도 연산 프로퍼티로 대체할 수 있습니다.
+    /* var subject: String = "" */
+    /*
+    var topic: String {
+        set {
+            self.subject = newValue
+        }
+        get {
+            return self.subject
+        }
+    }
+    */
     
     // 메서드 요구 준수
     func talk() {
@@ -58,6 +76,8 @@ struct Person: Talkable { // Person 구조체는 Talkable 프로토콜을 채택
 
 // MARK: -  프로토콜 상속
 
+// 프로토콜은 클래스와 다르게 다중상속이 가능합니다.
+
 /*
 protocol 프로토콜 이름: 부모 프로토콜 이름 목록 {
     정의부
@@ -71,12 +91,12 @@ protocol Writeable {
     func write()
 }
 protocol ReadSpeakable: Readable {
-//    func read()
+    // func read()
     func speak()
 }
 protocol ReadWriteSpeakable: Readable, Writeable {
-//    func read()
-//    func write()
+    // func read()
+    // func write()
     func speak()
 }
 
@@ -99,12 +119,12 @@ struct SomeType: ReadWriteSpeakable {
 // 클래스에서 상속과 프로토콜 채택을 동시에 하려면 상속받으려는 클래스를 먼저 명시하고 그 뒤에 채택할 프로토콜 목록을 작성합니다.
 
 class SuperClass: Readable {
-    func read() { }
+    func read() { /* print("read") */ }
 }
 
 class SubClass: SuperClass, Writeable, ReadSpeakable {
-    func write() { }
-    func speak() { }
+    func write() { /* print("write") */ }
+    func speak() { /* print("speak") */ }
 }
 
 
@@ -118,29 +138,32 @@ let sup: SuperClass = SuperClass()
 let sub: SubClass = SubClass()
 
 var someAny: Any = sup
-someAny is Readable // true
-someAny is ReadSpeakable // false
+someAny is Readable /// true
+someAny is ReadSpeakable /// false
 
 someAny = sub
 
-someAny is Readable // true
-someAny is ReadSpeakable // true
+someAny is Readable /// true
+someAny is ReadSpeakable /// true
 
 someAny = sup
 
 if let someReadable: Readable = someAny as? Readable {
     someReadable.read()
-} // 여기서 "읽기" 라고 출력할 수 있도록 코드 어딘가를 수정해보세요
+} /// read
+// 여기서 "읽기" 라고 출력할 수 있도록 코드 어딘가를 수정해보세요. : SuperClass의 read() 메서드의 코드에 'print("read")' 추가
 
 if let someReadSpeakable: ReadSpeakable = someAny as? ReadSpeakable {
     someReadSpeakable.speak()
-} // 여기서 "말하기" 라고 출력할 수 있도록 코드 어딘가를 수정해보세요
+} // 오류 발생
+// 여기서 "말하기" 라고 출력할 수 있도록 코드 어딘가를 수정해보세요. : SubClass의 speak() 메서드의 코드에 'print("speak")' 추가 && 전체 if 구문의 위치를 someAny에 sub클래스의 인스턴스가 할당된 이후로 변경
 
 someAny = sub
 
 if let someReadable: Readable = someAny as? Readable {
     someReadable.read()
-} // 여기서 "읽기" 라고 출력할 수 있도록 코드 어딘가를 수정해보세요
+} /// read
+// 여기서 "읽기" 라고 출력할 수 있도록 코드 어딘가를 수정해보세요. : SuperClass의 read() 메서드의 코드에 'print("read")' 추가
 
 
 

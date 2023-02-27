@@ -39,6 +39,7 @@ strings = numbers.map({ (number: Int) -> String in
 
 // 매개변수, 반환 타입, 반환 키워드(return) 생략, 후행 클로저
 doubledNumbers = numbers.map { $0 * 2 }
+
 // print(doubledNumbers) /// [0, 2, 4, 6, 8]
 
 
@@ -60,16 +61,17 @@ for number in numbers {
 // print(filtered) /// [0, 2, 4]
 
 // filter 메서드 사용
+
 // numbers의 요소 중 짝수를 걸러내어 새로운 배열로 반환
 let evenNumbers: [Int] = numbers.filter { (number: Int) -> Bool in
     return number % 2 == 0
 }
+
 // print(evenNumbers) // [0, 2, 4]
 
 // 매개변수, 반환 타입, 반환 키워드(return) 생략, 후행 클로저
-let oddNumbers: [Int] = numbers.filter {
-    $0 % 2 != 0
-}
+let oddNumbers: [Int] = numbers.filter { $0 % 2 != 0 }
+
 // print(oddNumbers) /// [1, 3]
 
 
@@ -84,19 +86,18 @@ let someNumbers: [Int] = [2, 8, 15]
 // 변수 사용에 주목하세요.
 var result: Int = 0
 
-// someNumbers의 모든 요소를 더합니다
+// someNumbers의 모든 요소를 더합니다.
 for number in someNumbers {
     result += number
 }
 
 // print(result) /// 25
 
-
 // reduce 메서드 사용
 
 // 초깃값이 0이고 someNumbers 내부의 모든 값을 더합니다.
 let sum: Int = someNumbers.reduce(0, { (result: Int, currentItem: Int) -> Int in
-    //print("\(result) + \(currentItem)") //어떻게 동작하는지 확인해보세요
+    // print("\(result) + \(currentItem)") // 어떻게 동작하는지 확인해보세요. : 0 + 2 \n 2 + 8 \n 10 + 15
     return result + currentItem
 })
 
@@ -104,7 +105,7 @@ let sum: Int = someNumbers.reduce(0, { (result: Int, currentItem: Int) -> Int in
 
 // 초깃값이 0이고 someNumbers 내부의 모든 값을 뺍니다.
 var subtract: Int = someNumbers.reduce(0, { (result: Int, currentItem: Int) -> Int in
-    //print("\(result) - \(second)") //어떻게 동작하는지 확인해보세요
+    // print("\(result) - \(currentItem)") // 어떻게 동작하는지 확인해보세요. : 0 - 2 \n -2 - 8 \n -10 - 15
     return result - currentItem
 })
 
@@ -114,6 +115,21 @@ var subtract: Int = someNumbers.reduce(0, { (result: Int, currentItem: Int) -> I
 let sumFromThree = someNumbers.reduce(3) { $0 + $1 }
 
 // print(sumFromThree) /// 28
+
+// 초기값이 0이고 someNumbers 내부의 모든 값을 곱합니다.
+let multiplyFromZero = someNumbers.reduce(0) { $0 * $1 }
+
+// print(multiplyFromZero) /// 0
+
+// 초기값이 1이고 someNumbers 내부의 모든 값을 곱합니다.
+let multiplyFromOne = someNumbers.reduce(1) { $0 * $1 }
+
+// print(multiplyFromOne) /// 240
+
+// 초기값이 2이고 someNumbers 내부의 모든 값을 곱합니다.
+let multiplyFromTwo = someNumbers.reduce(2) { $0 * $1 }
+
+// print(multiplyFromTwo) /// 480
 
 
 

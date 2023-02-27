@@ -15,14 +15,15 @@ enum 오류종류이름: Error {
 */
 
 // 자판기 동작 오류의 종류를 표현한 VendingMachineError 열거형
-
 enum VendingMachineError: Error {
     case invalidInput
     case insufficientFunds(moneyNeeded: Int)
     case outOfStock
 }
 
-// 함수에서 발생한 오류 던지기
+
+
+// MARK: - 함수에서 발생한 오류 던지기
 
 // 자판기 동작 도중 발생한 오류 던지기
 
@@ -86,6 +87,8 @@ var result: String?
 
 // MARK: - 오류처리
 
+// 오류발생의 여지가 있는 throws 함수(메서드)는 try를 사용하여 호출해야 합니다. /// try, try?, try!
+
 // do-catch
 
 // 오류발생의 여지가 있는 throws 함수(메서드)는 do-catch 구문을 활용하여 오류발생에 대비합니다.
@@ -96,11 +99,11 @@ var result: String?
 do {
     try machine.receiveMoney(0)
 } catch VendingMachineError.invalidInput {
-    print("입력이 잘못되었습니다")
+    print("입력이 잘못되었습니다.")
 } catch VendingMachineError.insufficientFunds(let moneyNeeded) {
-    print("\(moneyNeeded)원이 부족합니다")
+    print("\(moneyNeeded)원이 부족합니다.")
 } catch VendingMachineError.outOfStock {
-    print("수량이 부족합니다")
+    print("수량이 부족합니다.")
 } /// 입력이 잘못되었습니다.
 */
 
@@ -135,19 +138,29 @@ do {
 } /// insufficientFunds(100)
 */
 
+// 오류가 발생해도 신경쓰지 않고자 한다면, 더욱 간결하게 표현할 수 있습니다.
+
+do {
+    result = try machine.vend(numberOfItems: 4)
+} /// insufficientFunds(100)
+
 
 
 // try? 와 try!
 
 // try?
 
-// 별도의 오류처리 결과를 통보받지 않고 오류가 발생했으면 결과값을 nil로 돌려받을 수 있습니다
+// 별도의 오류처리 결과를 통보받지 않고 오류가 발생했으면 결과값을 nil로 돌려받을 수 있습니다.
 // 정상동작 후에는 옵셔널 타입으로 정상 반환값을 돌려 받습니다.
 
 result = try? machine.vend(numberOfItems: 2)
+
+// result // Optional("2개 제공함")
 // print(result as Any) // Optional("2개 제공함")
 
 result = try? machine.vend(numberOfItems: 2)
+
+// result // nil
 // print(result as Any) // nil
 
 // try!
@@ -155,10 +168,10 @@ result = try? machine.vend(numberOfItems: 2)
 // 오류가 발생하지 않을 것이라는 강력한 확신을 가질 때 try!를 사용하면 정상동작 후에 바로 결과값을 돌려받습니다.
 // 오류가 발생하면 런타임 오류가 발생하여 애플리케이션 동작이 중지됩니다.
 
-/*
 result = try! machine.vend(numberOfItems: 1)
-// print(result as Any) /// 1개 제공함
-*/
+
+// result // 1개 제공함
+// print(result as Any) // 1개 제공함
 
 // result = try! machine.vend(numberOfItems: 1) // 오류 발생
 

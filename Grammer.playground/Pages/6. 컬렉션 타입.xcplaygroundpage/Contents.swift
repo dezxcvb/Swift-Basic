@@ -42,7 +42,7 @@ var strings: [String] = [String]()
 var characters: [Character] = [] // []는 새로운 빈 Array
 
 // var을 사용하여 Array를 생성하면 가변 Array
-let mutableArray = [1, 2, 3]
+var mutableArray = [1, 2, 3]
 
 // let을 사용하여 Array를 생성하면 불변 Array
 let immutableArray = [1, 2, 3]
