@@ -27,7 +27,7 @@ enum Weekday {
     case thu, fri, sat, sun
 }
 
-var day: Weekday = Weekday.mon
+var day/*: Weekday*/ = Weekday.mon
 
 // var day = .mon // 오류 발생
 
@@ -83,7 +83,7 @@ enum School: String {
 // rawValue를 통해 초기화 할 수 있습니다.
 // rawValue가 case에 해당하지 않을 수 있으므로, rawValue를 통해 초기화 한 인스턴스는 옵셔널 타입입니다.
 
-//let apple: Fruit = Fruit(rawValue: 0)
+// let apple: Fruit = Fruit(rawValue: 0)
 let apple: Fruit? = Fruit(rawValue: 0)
 
 if let orange: Fruit = Fruit(rawValue: 5) {
