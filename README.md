@@ -6,4 +6,4 @@
 
 # Private Summary
 
-[Notion](https://childlike-water-d7f.notion.site/61dc7d44a8044fbf83a6b3e7db80027f?v=c7e94f754c29497087eb3bf25a500a8a)
+[Notion](https://dezxcvb.notion.site/02b14003b7154f4e8464acdb746fe1e5?v=3b8bd121a86a472d83972e620ea8a1d2)
